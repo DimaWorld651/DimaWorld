@@ -43,6 +43,14 @@ mapCard?.addEventListener('pointermove', (event) => {
 });
 mapCard?.addEventListener('pointerleave', () => mapCard.style.transform = 'perspective(900px) rotateY(0) rotateX(0)');
 
+const copyButton = document.getElementById('copyIp');
+const toast = document.getElementById('toast');
+copyButton?.addEventListener('click', async () => {
+  await navigator.clipboard.writeText('dimaword.falix.me');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2200);
+});
+
 const center = document.getElementById('commandCenter');
 const openCenter = document.getElementById('openCommand');
 const signalButton = document.getElementById('newSignal');
