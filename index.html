@@ -15,11 +15,13 @@
     <div class="intro" id="intro" aria-hidden="true"><div class="intro-mark">D</div><p>ЗАВАНТАЖЕННЯ СВІТУ <span id="loadNumber">00</span>%</p><div class="load-line"><i></i></div></div>
     <div class="noise"></div>
     <div class="stars" aria-hidden="true"></div>
+    <div class="cursor-aura" aria-hidden="true"></div>
     <main>
       <nav class="nav container">
         <a class="brand" href="#top" aria-label="DimaWorld головна">
           <span class="brand-cube">D</span><span>DIMA<span>WORLD</span></span>
         </a>
+        <div class="nav-system"><span class="nav-pulse"></span> СИСТЕМИ ОНЛАЙН</div>
         <a class="nav-link" href="#about">Про світ <span>↗</span></a>
       </nav>
 
@@ -29,12 +31,13 @@
           <h1>ТУТ<br />ПОЧИНАЄТЬСЯ<br /><em>ЛЕГЕНДА.</em></h1>
           <p class="hero-text">DimaWorld ще будується. Але за горизонтом уже видно пригоди, епічні битви та історії, які створиш саме ти.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#launch">ДІЗНАТИСЯ ПЕРШИМ <b>→</b></a>
+            <button class="button primary command-button" id="openCommand">ВІДКРИТИ ЦЕНТР <b>→</b></button>
             <a class="button ghost" href="#about">ДОСЛІДИТИ СВІТ</a>
           </div>
         </div>
 
         <div class="portal-wrap" aria-label="Портал DimaWorld">
+          <div class="portal-particles" id="portalParticles"></div>
           <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
           <div class="portal">
             <div class="portal-core"></div>
@@ -49,6 +52,8 @@
           <div class="server-status"><span class="status-dot"></span><div><small>СТАТУС СЕРВЕРА</small><strong>СКОРО ВІДКРИТТЯ</strong></div></div>
         </div>
       </section>
+
+      <section class="intel container"><div class="intel-label"><span>DW//INTEL</span><i></i><b>ДОСЛІДЖЕННЯ СВІТУ: АКТИВНЕ</b></div><div class="intel-quote">«Кожен великий світ починається з <em>одного</em> блоку.»</div><div class="intel-code">SECTOR: DIMA-01<br />BUILD: 0.78.∞</div></section>
 
       <section class="ticker" aria-label="Особливості"><div>ВИЖИВАННЯ <b>✦</b> КЛАНИ <b>✦</b> КВЕСТИ <b>✦</b> PVP <b>✦</b> ЕКОНОМІКА <b>✦</b> ВИЖИВАННЯ <b>✦</b> КЛАНИ <b>✦</b> КВЕСТИ <b>✦</b> PVP <b>✦</b> ЕКОНОМІКА <b>✦</b></div></section>
 
@@ -71,7 +76,9 @@
 
       <section class="signal container"><div class="signal-card"><div class="signal-scan"></div><div class="signal-orb"><span></span></div><div class="signal-content"><p class="eyebrow"><i></i> СИГНАЛ ВИЯВЛЕНО</p><h2>ПОРТАЛ<br />МАЙЖЕ <em>ГОТОВИЙ.</em></h2><p>Команда DimaWorld працює над кожним блоком. Наступний сигнал може бути початком твоєї пригоди.</p></div><div class="signal-meter"><span>ГОТОВНІСТЬ СВІТУ</span><div><i></i></div><b>78%</b></div></div></section>
 
-      <section class="launch" id="launch">
+      <section class="chronicle container reveal"><div class="chronicle-head"><div><p class="eyebrow"><i></i> ХРОНІКА DIMAWORLD</p><h2>ТРИ ГЛАВИ.<br /><em>ОДНА ЛЕГЕНДА.</em></h2></div><p>Натисни на главу, щоб побачити перший фрагмент історії майбутнього DimaWorld.</p></div><div class="chapter-list"><button class="chapter active" data-lore="У СВІТІ З’ЯВЛЯЄТЬСЯ ПЕРШИЙ ВОГОНЬ. САМЕ ВІД НЬОГО ПОЧНЕТЬСЯ ДОРОГА КОЖНОГО ГРАВЦЯ."><span>ГЛАВА 01</span><b>ПЕРШИЙ<br />ВОГОНЬ</b><i>↗</i></button><button class="chapter" data-lore="ЗА МЕЖАМИ БЕЗПЕЧНИХ ЗЕМЕЛЬ ПРОКИДАЮТЬСЯ ДИКІ ТЕРИТОРІЇ. ВОНИ ЧЕКАЮТЬ НА СМІЛИВЦІВ."><span>ГЛАВА 02</span><b>ДИКИЙ<br />ГОРИЗОНТ</b><i>↗</i></button><button class="chapter" data-lore="КОЛИ ПЕРШІ ГЕРОЇ ОБ’ЄДНАЮТЬСЯ, З’ЯВЛЯТЬСЯ КЛАНИ. А ДЕ КЛАНИ — ТАМ НАРОДЖУЮТЬСЯ ЛЕГЕНДИ."><span>ГЛАВА 03</span><b>ПОКЛИК<br />ЛЕГЕНД</b><i>↗</i></button></div><div class="lore-window"><span>АРХІВНИЙ ФРАГМЕНТ // РОЗШИФРОВАНО</span><p id="loreText">У СВІТІ З’ЯВЛЯЄТЬСЯ ПЕРШИЙ ВОГОНЬ. САМЕ ВІД НЬОГО ПОЧНЕТЬСЯ ДОРОГА КОЖНОГО ГРАВЦЯ.</p><div class="lore-bars"><i></i><i></i><i></i><i></i><i></i></div></div></section>
+
+      <section class="launch reveal" id="launch">
         <div class="container launch-inner">
           <p class="eyebrow"><i></i> СТЕЖ ЗА ВІДКРИТТЯМ</p>
           <h2>ГОТОВИЙ<br />УВІЙТИ В <em>СВІТ?</em></h2>
@@ -81,6 +88,16 @@
       </section>
     </main>
     <footer class="footer container"><span>© 2026 DIMAWORLD</span><span>ЗРОБЛЕНО ДЛЯ МАЙБУТНІХ ЛЕГЕНД</span></footer>
+    <section class="command-center" id="commandCenter" aria-hidden="true">
+      <div class="command-backdrop" data-close-command></div>
+      <div class="command-panel" role="dialog" aria-modal="true" aria-labelledby="commandTitle">
+        <button class="command-close" data-close-command aria-label="Закрити">×</button>
+        <div class="command-top"><span>DIMAWORLD // COMMAND CENTER</span><b>З’ЄДНАННЯ ЗАХИЩЕНЕ</b></div>
+        <div class="command-core"><div class="command-ring"><i></i><strong>D</strong></div><div><p class="eyebrow"><i></i> ПРИЙНЯТО СИГНАЛ</p><h2 id="commandTitle">СВІТ ЧЕКАЄ<br /><em>НА ТЕБЕ.</em></h2></div></div>
+        <div class="mission-log"><span>ПОТОЧНЕ ПОВІДОМЛЕННЯ</span><p id="missionText">Завантаження повідомлення...</p><button id="newSignal">ОТРИМАТИ НОВИЙ СИГНАЛ <b>↻</b></button></div>
+        <div class="command-footer"><span>СТАТУС: <b>ПІДГОТОВКА</b></span><span>DIMAWORLD / 2026</span></div>
+      </div>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>
