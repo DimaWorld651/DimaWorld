@@ -56,10 +56,10 @@ const openCenter = document.getElementById('openCommand');
 const signalButton = document.getElementById('newSignal');
 const missionText = document.getElementById('missionText');
 const messages = [
-  'У ПІВНІЧНИХ ЗЕМЛЯХ ПОМІЧЕНО СТАРОДАВНІ РУЇНИ. ХТО ПЕРШИМ ЗНАЙДЕ ЇХНІЙ СЕКРЕТ?',
-  'ПЕРШИЙ БЛОК НОВОГО СВІТУ ВЖЕ ВСТАНОВЛЕНО. МОЖЛИВО, САМЕ ТИ ПОБУДУЄШ НАСТУПНИЙ.',
-  'ПОРТАЛ ФІКСУЄ НОВІ ЕНЕРГЕТИЧНІ СЛІДИ. СХОЖЕ, ПРИГОДА ВЖЕ БЛИЗЬКО.',
-  'РЕЄСТР ГЕРОЇВ ПОКИ ПУСТИЙ. ЧИЙ НІК З’ЯВИТЬСЯ В НЬОМУ ПЕРШИМ?'
+  'ФІНАЛЬНІ ПЕРЕВІРКИ СВІТУ МАЙЖЕ ЗАВЕРШЕНО. ЗОВСІМ СКОРО ПОРТАЛ ВІДЧИНИТЬСЯ.',
+  'СПАВН І ГОЛОВНІ СИСТЕМИ ГОТОВІ. МОЖЛИВО, САМЕ ТИ СТАНЕШ ПЕРШОЮ ЛЕГЕНДОЮ DIMAWORLD.',
+  'ПОРТАЛ СТАБІЛЬНИЙ. ЗАЛИШИВСЯ ОСТАННІЙ КРОК ПЕРЕД ВЕЛИКИМ ВІДКРИТТЯМ.',
+  'РЕЄСТР ГЕРОЇВ ЧЕКАЄ НА ПЕРШІ НІКИ. ТВОЯ ПРИГОДА ОСЬ-ОСЬ ПОЧНЕТЬСЯ.'
 ];
 const revealSignal = () => { missionText.textContent = messages[Math.floor(Math.random() * messages.length)]; };
 openCenter?.addEventListener('click', () => { center.classList.add('is-open'); center.setAttribute('aria-hidden', 'false'); revealSignal(); });
